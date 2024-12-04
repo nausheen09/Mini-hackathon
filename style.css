@@ -321,8 +321,8 @@ button:hover {
 
 /* -------------all profile file--------- */
 .body-PRO {
-  background-color: #111;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
   font-family: Arial, sans-serif;
 }
 
@@ -436,7 +436,7 @@ button:hover {
 
 /* -------------user profile file--------- */
 .body-user {
-  background-color: #111;
+  background-color: #000000;
   color: #fff;
   font-family: Arial, sans-serif;
 }

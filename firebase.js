@@ -3,7 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebas
 
 import { getAuth ,signOut ,createUserWithEmailAndPassword ,updateProfile,signInWithEmailAndPassword,onAuthStateChanged,sendEmailVerification, updateEmail, updatePassword, deleteUser, signInWithPopup, GoogleAuthProvider, } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+import { getFirestore, collection, addDoc, onSnapshot,query,where, } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 
 
 
@@ -23,4 +23,4 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth()
 const db = getFirestore(app)
 
-export {db,collection, addDoc, getAuth,signOut ,createUserWithEmailAndPassword,updateProfile, signInWithEmailAndPassword,onAuthStateChanged ,sendEmailVerification, updateEmail, updatePassword, deleteUser, signInWithPopup, GoogleAuthProvider, auth, }
+export {db,collection, addDoc, getAuth,signOut ,createUserWithEmailAndPassword,updateProfile, signInWithEmailAndPassword,onAuthStateChanged ,sendEmailVerification, updateEmail, updatePassword, deleteUser, signInWithPopup, GoogleAuthProvider, auth, onSnapshot,query,where, }

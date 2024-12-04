@@ -10,6 +10,147 @@ import {
 
 const auth = getAuth();
 
+// -----------cloudinay----------
+// const cloudName = "dgtsbc43h";
+// const unsignedUploadPreset = "mclp2wp0";
+
+// let fileInput = document.getElementById("fileInput");
+// console.log(fileInput + "ok mil gai")
+// let gallery = document.getElementById("gallery");
+
+
+// fileInput.addEventListener("change", () => {
+//   let files = fileInput.files; // This will be a FileList object
+//   if (files.length > 0) {
+//     // Using for...of loop to iterate over files
+//     for (let file of files) {
+//       let url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
+
+//       let fd = new FormData();
+//       fd.append("upload_preset", unsignedUploadPreset);
+//       fd.append("file", file);
+
+//       fetch(url, {
+//         method: "POST",
+//         body: fd,
+//       })
+//         .then((response) => response.json())
+//         .then((data) => {
+//           let resourceURl = data.secure_url;
+          
+//           // Fix: Correct URL transformation for cropping and face detection
+//           let transformedUrl = resourceURl.replace(
+//             "upload/",
+//             "upload/c_thumb,g_auto,h_200,w_200/r_max/"
+//           );
+
+//           console.log("Uploaded successfully", resourceURl);
+
+          
+        
+//           // Handle different file types (image, video, pdf)
+//           if (data.format == "pdf" || data.format == "mp4" || data.format == "jpeg") {
+//             let iframe = document.createElement("iframe");
+//             iframe.src = resourceURl;
+//             iframe.width = "500px";
+//             iframe.height = "500px";
+//             gallery.appendChild(iframe);
+//             console.log(iframe);
+//           } else {
+//             let img = new Image();
+//             img.src = transformedUrl;
+//             console.log(transformedUrl)
+
+//             // Event listeners for loading and error
+//             // img.onload = () => {
+//             //   gallery.appendChild(img);//error da rha hai
+//             // };
+
+//             img.onerror = (error) => {
+//               console.error("Error loading image: ", error);
+//             };
+//           }
+//         })
+//         .catch((e) => {
+//           console.log(e);
+//         });
+//     }
+//   }
+// });
+
+
+
+
+
+// let dropArea = document.getElementById("dropArea");
+
+// dropArea.addEventListener("dragover", (e) => {
+//   e.preventDefault();
+//   console.log("Dragging over");
+// });
+
+// dropArea.addEventListener("drop", (event) => {
+//   event.stopPropagation();
+//   event.preventDefault();
+//   console.log("Dropped");
+
+//   let files = event.dataTransfer.files;
+//   console.log(files);
+
+//   // Using for...of loop to iterate over files dropped in the drop area
+//   for (let file of files) {
+//     let url = `https://api.cloudinary.com/v1_1/${cloudName}/upload`;
+
+//     let fd = new FormData();
+//     fd.append("upload_preset", unsignedUploadPreset);
+//     fd.append("file", file);
+
+//     fetch(url, {
+//       method: "POST",
+//       body: fd,
+//     })
+//       .then((response) => response.json())
+//       .then((data) => {
+//         let resourceURl = data.secure_url;
+        
+//         // Fix: Correct URL transformation for cropping and face detection
+//         let transformedUrl = resourceURl.replace(
+//           "upload/",
+//           "upload/c_thumb,g_auto,h_200,w_200/r_max/"
+//         );
+
+//         console.log("Uploaded successfully", resourceURl);
+
+//         // Handle different file types (image, video, pdf)
+//         if (data.format == "pdf" || data.format == "mp4") {
+//           let iframe = document.createElement("iframe");
+//           iframe.src = resourceURl;
+//           iframe.width = "500px";
+//           iframe.height = "500px";
+//           gallery.appendChild(iframe);
+//           console.log(iframe);
+//         } else {
+//           let img = new Image();
+//           img.src = transformedUrl;
+
+//           // Event listeners for loading and error
+//           img.onload = () => {
+//             gallery.appendChild(img);
+//           };
+
+//           img.onerror = (error) => {
+//             console.error("Error loading image: ", error);
+//           };
+//         }
+//       })
+//       .catch((e) => {
+//         console.log(e);
+//       });
+//   }
+// });
+
+
+
 let profilePage = document.getElementById("profile-page");
 
 onAuthStateChanged(auth, (user) => {
@@ -260,69 +401,3 @@ onAuthStateChanged(auth, (user) => {
     }
 
 });
-
-
-
-{/* --------------------------------------------- */}
-{/* <div class="p-0 m-0">
-        <div class="row d-flex justify-content-center align-items-center h-100 p-0 m-0">
-          <div class="col col-lg-6 mb-4 mb-lg-0  w-100 p-0">
-            <div class="card mb-0  bg-transparent text-white" style="border-radius: .5rem;">
-              <div class="row g-0  mb-0 pt-1">
-                <div class="col-md-4 gradient-custom text-center  photo"
-                  style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
-                  <img src="${user.photoURL} "
-                    alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
-                  <h5 class="text-white">${user.displayName}</h5>
-                </div>
-                <div class="col-md-8">
-                  <div class="card-body p-2">
-                    <h6>Information</h6>
-                    <hr class="mt-0 mb-4">
-                    <div class="row pt-1">
-                      <div class="col-6 mb-3">
-                        <h6>Email</h6>
-                        <p class="text-muted  text-white">${user.email}</p>
-                         <p class="text-muted ">${user.newEmail}</p>
-                      </div>
-                      <div class="col-6 mb-3">
-                        <h6>Phone</h6>
-                        <p class="text-muted">123 456 789</p>
-                      </div>
-                      <div class="col-6 mb-3">
-                        <h6>Email Verify</h6>
-                        <p class="text-muted text-white">${user.emailVerified ? "Yes" : "No"
-            }</p>
-                      </div>
-                    </div>
-                    <h6>Projects</h6>
-                    <hr class="mt-0 mb-4">
-                    <div class="row pt-1">
-                      <div class="col-6 mb-3">
-                       <button type="button" class="button-85" id="verifyEmail">Verify your email</button>
-                      </div>
-                      <div class="col-6 mb-3">
-                        <button type="button" class="button-85" id="updateProfile">Update profile</button>
-                      </div>
-                      <div class="col-6 mb-3">
-                        <button type="button" class="button-85" id="updateEmail">Update Email</button>
-                      </div>
-                      <div class="col-6 mb-3">
-                                <button type="button" class="button-85" id="deleteAccount">Delete Account</button>
-                      </div>
-                      <div class="col-6 mb-3">
-                       <button type="button" class="button-85" id="signOut">Sign Out</button>
-                      </div>
-                    </div>
-                    <div class="d-flex justify-content-evenly  w-50">
-                      <a href="#!"><i class="fa-brands fa-facebook fa-lg" style="color: #ffffff;"></i></a>
-                      <a href="#!"><i class="fa-brands fa-twitter fa-lg" style="color: #ffffff;"></i></a>
-                      <a href="#!"><i class="fa-brands fa-instagram fa-lg" style="color: #ffffff;"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}

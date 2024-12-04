@@ -23,28 +23,64 @@
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.4/dist/sweetalert2.min.css">
          <!-- -------External file-------- -->
     <link rel="stylesheet" href="style.css">
-
+    <style>
+        body {
+            background-color: white;
+            color: black;
+        }
+        .navbar {
+            background-color: white;
+            color: black;
+        }
+        .sb-sidenav-dark {
+            background-color: white;
+            color: black;
+        }
+        .card {
+            background-color: white;
+            color: black;
+        }
+        a {
+            color: black;
+        }
+        .sb-topnav, .sb-sidenav-menu, .sb-sidenav-footer {
+            background-color: white;
+            color: black;
+        }
+        button {
+            color: black;
+        }
+    </style>
+    
 </head>
 
 <body class="body-user">
     <!-- -----------navbar-------- -->
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <nav class="sb-topnav navbar navbar-expand">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="dashboard.html">Start Bootstrap</a>
+         <img src="images/Rectangle 3.png" alt="">
+        <a class="navbar-brand ps-3" href="dashboard.html">Coranu</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
         <!-- Navbar Search-->
-        <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        <form class="d-flex align-items-center ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
-                <button id="btn67" class="button-64"><span class="text"><a class="nav-link" href="signup.html">SignUp</a></span></button>
+                    <input class="form-control" type="text" id="search-input" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
             </div>
+            <div class="input-group me-2">
+                <button id="btn67" class="button-64"><span class="text"><a class="nav-link"
+                    href="signup.html">SignUp</a></span></button>
+            </div>
+
         </form>
+
         <!-- Navbar-->
         <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="#!">Settings</a></li>
                     <li><a class="dropdown-item" href="#!">Activity Log</a></li>
@@ -60,7 +96,7 @@
     <!-- -------------Menu option-------- -->
     <div id="layoutSidenav">
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion " id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">MENU</div>
@@ -72,14 +108,13 @@
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                             data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                            Layouts
+                            profile
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"
                             data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="userprofile.html">User Profile</a>
-                                <a class="nav-link" href="allprofile.html">All Profiles</a>
                             </nav>
                         </div>
 
@@ -94,19 +129,8 @@
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="signup.html">SignUp</a>
                                 <a class="nav-link" href="login.html">LogIn</a>
-                                <a class="nav-link" href="register.html">Register</a>
                             </nav>
                         </div>
-
-                        <div class="sb-sidenav-menu-heading">Addons</div>
-                        <a class="nav-link" href="charts.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                            Charts
-                        </a>
-                        <a class="nav-link" href="tables.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                            Tables
-                        </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
@@ -118,12 +142,12 @@
 
         <!-- -----------------User Profile page---------- -->
         <div id="layoutSidenav_content">
-            <main>
+            <main style="background-color: aliceblue;">
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">USER PROFILE</h1>
+                    <h1 class="mt-4 text-dark">USER PROFILE</h1>
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="dashboard.html" class="dashboradcolor">Dashboard</a></li>
-                        <li class="breadcrumb-item active text-white">User Profile</li>
+                        <li class="breadcrumb-item active text-dark">User Profile</li>
                     </ol>
                     <div class="body3">
                          <section class="" >
@@ -196,21 +220,6 @@
                 </div>
             </main>
 
-
-
-            <!-- ----------page footer------ -->
-            <footer class="py-4  mt-auto" style="background-color: rgb(0, 0, 0);">
-                <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-white">Copyright &copy; Your Website 2023</div>
-                        <div>
-                            <a href="#">Privacy Policy</a>
-                            &middot;
-                            <a href="#">Terms &amp; Conditions</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
 
